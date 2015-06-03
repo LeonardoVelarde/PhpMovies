@@ -14,6 +14,16 @@
 
     <br><br>
 
+    {!! Form::open(['url' => 'rating']) !!}
+    {!! Form::label('rating', 'Rating:') !!}
+    {!! Form::hidden('movie_id', $movie->id) !!}
+    {!! Form::hidden('user_id', Auth::id()) !!}
+    {!! Form::select('score' ,array('1' => '1','2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9',  '10' => '10'), 'Score', ['class' => 'form-control']) !!}
+    {!! Form::submit('Save Rating', ['class' => 'btn btn-primary']) !!}
+    {!! Form::close() !!}
+
+    <br><br>
+
     {!! Form::open(array('route' => array('movie.destroy', $movie->id), 'method' => 'delete')) !!}
     <button type="submit" class="btn btn-danger">Delete movie</button><a href="{{ $movie->id }}/edit" style="display:inline;" class="btn btn-default">Edit</a>
     {!! Form::close() !!}
@@ -52,9 +62,6 @@
                 <br><br>
             @endforeach
         @endunless
-
-        {!! Form::open(['url' => 'review']) !!}
-        {!! Form::close() !!}
 
         {!! Form::open(['url' => 'review']) !!}
         <div class="form-group">
