@@ -43,7 +43,7 @@
 				<div class="title">Laravel 5</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
                 <br><br><br>
-                <a href="/homw" class="btn btn-default">Log In</a>
+                <a href="/home" class="btn btn-default">Log In</a>
 			</div>
 
 		</div>
