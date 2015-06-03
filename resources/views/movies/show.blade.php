@@ -4,6 +4,10 @@
     <h1>{{ $movie->title }}</h1>
     <div class="body">
         {{ $movie->description }}
+
+        <br><br>
+        <strong>Category: </strong>{{ $movie->category }}
+
         <br><br>
         <strong>Rating: </strong>{{ $rating }}
     </div>
@@ -24,9 +28,33 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;{{ $review->content }}
                 </strong>
                 - {{($review->user == null) ? 'NA' : $review->user->email}}
+
+                <div class="like">
+                    <strong style="display: inline;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Likes: {{ $review->likes->count() }}
+                    </strong>
+
+                    @if($review->likes->where('user_id', (string)Auth::id())->count() ==0)
+                        {!! Form::open(['url' => 'like']) !!}
+                        {!! Form::hidden('review_id', $review->id) !!}
+                        {!! Form::hidden('user_id', Auth::id()) !!}
+                        &nbsp;&nbsp;&nbsp;&nbsp;{!! Form::submit('Like', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['url' => 'dislike']) !!}
+                        {!! Form::hidden('review_id', $review->id) !!}
+                        {!! Form::hidden('id', $review->likes->where('user_id', (string)Auth::id())->first()['id'] ) !!}
+                        &nbsp;&nbsp;&nbsp;&nbsp;{!! Form::submit('Dislike', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::close() !!}
+                    @endif
+                </div>
+
                 <br><br>
             @endforeach
-        @endif
+        @endunless
+
+        {!! Form::open(['url' => 'review']) !!}
+        {!! Form::close() !!}
 
         {!! Form::open(['url' => 'review']) !!}
         <div class="form-group">

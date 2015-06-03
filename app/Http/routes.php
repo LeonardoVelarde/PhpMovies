@@ -20,6 +20,8 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/movie/like/{id}', 'MoviesController@like');
     Route::resource('movie', 'MoviesController');
     Route::resource('review', 'ReviewsController');
+    Route::post('like', 'LikesController@like');
+    Route::post('dislike', 'LikesController@dislike');
 });
 
 //Route::get('movies/create', 'MoviesController@create');

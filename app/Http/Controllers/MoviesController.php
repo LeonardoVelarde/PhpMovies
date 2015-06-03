@@ -87,7 +87,7 @@ class MoviesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, Request $request)
+	public function update($id, StoreMovieRequest $request)
 	{
         $movie = Movie::findOrFail($id);
         $input = $request::all();

@@ -17,6 +17,11 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('category', 'Category') !!}
+            {!! Form::select('category' ,array('Sci-fi' => 'Sci-fi','Comedy' => 'Comedy', 'Drama' => 'Drama', 'Terror' => 'Terror'), 'Category', ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group">
             {!! Form::submit('Register Movie', ['class' => 'btn btn-primary form-control']) !!}
         </div>
     {!! Form::close() !!}

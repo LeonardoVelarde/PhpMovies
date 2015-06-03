@@ -6,7 +6,8 @@ class Movie extends Model {
 
 	protected $fillable = [
         'title',
-        'description'
+        'description',
+        'category'
     ];
 
     public function ratings()

@@ -23,7 +23,8 @@ class StoreMovieRequest extends Request {
 	{
         return [
             'title' => 'required',
-            'description' => 'required|max:400'
+            'description' => 'required',
+            'category' => 'required'
         ];
 	}
 
