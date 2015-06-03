@@ -15,7 +15,7 @@
     <br><br>
 
     {!! Form::open(array('route' => array('movie.destroy', $movie->id), 'method' => 'delete')) !!}
-    <button type="submit" class="btn btn-danger">Delete movie</button>
+    <button type="submit" class="btn btn-danger">Delete movie</button><a href="{{ $movie->id }}/edit" style="display:inline;" class="btn btn-default">Edit</a>
     {!! Form::close() !!}
 
     <br><br>

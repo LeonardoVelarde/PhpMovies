@@ -3,7 +3,7 @@
 		<title>Laravel</title>
 		
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
+        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<style>
 			body {
 				margin: 0;
@@ -42,7 +42,10 @@
 			<div class="content">
 				<div class="title">Laravel 5</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
+                <br><br><br>
+                <a href="/homw" class="btn btn-default">Log In</a>
 			</div>
+
 		</div>
 	</body>
 </html>

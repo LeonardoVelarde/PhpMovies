@@ -13,5 +13,6 @@
 			</div>
 		</div>
 	</div>
+    <a href="/movie" class="btn btn-warning">Movies</a>
 </div>
 @endsection
